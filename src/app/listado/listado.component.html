@@ -1,0 +1,6 @@
+<p>listado works!</p>
+<p>Botón deshabilitado: {{buttonState}}</p>
+<p>Número tarjeta: {{numeroTarjeta}}</p>
+<button (click)="toggleButton(texto)">Boton</button>
+<button [disabled]="buttonState">Boton 2</button>
+<input [(ngModel)]="numeroTarjeta">
