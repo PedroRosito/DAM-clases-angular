@@ -5,3 +5,9 @@
 <button (click)="toggleButton(texto)">Boton</button>
 <button [disabled]="buttonState">Boton 2</button>
 <input [(ngModel)]="numeroTarjeta">
+<p *ngIf="buttonState; else condicionElse">Este texto es condicional</p>
+<ng-template #condicionElse><p>Más texto condicional</p></ng-template>
+<div *ngFor="let dispositivo of listado">
+    <p>Dispositivo: {{ dispositivo.name }}</p>
+    <p>Ubicación: {{ dispositivo.location }}</p>
+</div>
