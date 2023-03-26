@@ -11,13 +11,16 @@ import { LoggerService } from '../services/logger.service';
 })
 export class ListadoComponent {
 
-  // constructor(
-  //   private listadoService: ListadoDispositivosService,
-  //   private loggerService: LoggerService) {}
+  constructor(
+    private listadoService: ListadoDispositivosService) {}
 
   // variable: number = 2;
 
-  // listado: Dispositivo[] = this.listadoService.getListadoDispositivos();
+  listado: Dispositivo[] = this.listadoService.getListadoDispositivos();
+
+  manejador(event: any) {
+    console.log(event)
+  }
 
   // buttonState: boolean = false;
   // texto: string = "mostrar texto al clickear";
@@ -28,43 +31,43 @@ export class ListadoComponent {
   //   this.loggerService.logWarning(texto);
   // }
 
-  name: FormControl = new FormControl("", [Validators.required, Validators.maxLength(4)])
+  // name: FormControl = new FormControl("", [Validators.required, Validators.maxLength(4)])
 
-  loginForm: FormGroup = new FormGroup({
-    user: new FormControl("", [Validators.required]),
-    pass: new FormControl("", [Validators.required])
-  })
+  // loginForm: FormGroup = new FormGroup({
+  //   user: new FormControl("", [Validators.required]),
+  //   pass: new FormControl("", [Validators.required])
+  // })
 
-  onSubmit() {
-    console.log(this.loginForm.value);
-    console.log(this.regForm.get('firstName')?.value);
-  }
+  // onSubmit() {
+  //   console.log(this.loginForm.value);
+  //   console.log(this.regForm.get('firstName')?.value);
+  // }
 
-  regForm = new FormBuilder().group({
-    firstName: ["", [Validators.required, Validators.maxLength(8)]],
-    lastName: ["", [Validators.required, Validators.maxLength(12)]],
-    email: ["", [Validators.required, Validators.email]],
-    pass: ["", [Validators.required, passwordValidator()]]
-  })
+  // regForm = new FormBuilder().group({
+  //   firstName: ["", [Validators.required, Validators.maxLength(8)]],
+  //   lastName: ["", [Validators.required, Validators.maxLength(12)]],
+  //   email: ["", [Validators.required, Validators.email]],
+  //   pass: ["", [Validators.required, passwordValidator()]]
+  // })
 
 }
 
-export function passwordValidator(): ValidatorFn {
-  return (control:AbstractControl): ValidationErrors | null => {
+// export function passwordValidator(): ValidatorFn {
+//   return (control:AbstractControl): ValidationErrors | null => {
 
-    const value = control.value;
+//     const value = control.value;
 
-    if(!value) {
-      return null;
-    }
+//     if(!value) {
+//       return null;
+//     }
 
-    const hasUpperCase = /[A-Z]+/.test(value);
-    const hasLowerCase = /[a-z]+/.test(value);
-    const hasNumber = /[0-9]+/.test(value);
+//     const hasUpperCase = /[A-Z]+/.test(value);
+//     const hasLowerCase = /[a-z]+/.test(value);
+//     const hasNumber = /[0-9]+/.test(value);
 
-    const passwordValid = hasUpperCase && hasLowerCase && hasNumber;
+//     const passwordValid = hasUpperCase && hasLowerCase && hasNumber;
 
-    return !passwordValid ? {passwordStrength:true} : null;
+//     return !passwordValid ? {passwordStrength:true} : null;
 
-  }
-};
+//   }
+// };

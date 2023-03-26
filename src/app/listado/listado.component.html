@@ -7,13 +7,12 @@
 <input [(ngModel)]="numeroTarjeta">
 <p *ngIf="buttonState; else condicionElse">Este texto es condicional</p>
 <ng-template #condicionElse><p>Más texto condicional</p></ng-template>
-<div *ngFor="let dispositivo of listado">
-    <p>Dispositivo: {{ dispositivo.name }}</p>
-    <p>Ubicación: {{ dispositivo.location }}</p>
-</div>
 <div appColorear>Texto a colorear</div> -->
+<div *ngFor="let elemento of listado">
+    <app-dispositivo [dispositivo]="elemento" (onChange)="manejador($event)"></app-dispositivo>
+</div>
 
-<form>
+<!-- <form>
     <label for="name">Name: </label>
     <input id="name" type="text" [formControl]="name">
 </form>
@@ -47,4 +46,4 @@
         La contraseña debe tener al menos una minúscula, una mayúscula y un número.
     </div>
     <button type="submit" [disabled]="regForm.invalid">Submit</button>
-</form>
+</form> -->
