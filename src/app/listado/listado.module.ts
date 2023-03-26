@@ -4,6 +4,7 @@ import { ListadoComponent } from './listado.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ElevarPipe } from '../pipes/elevar.pipe';
 import { ColorearDirective } from '../directives/colorear.directive';
+import { DispositivoComponent } from '../dispositivo/dispositivo.component';
 
 
 
@@ -12,6 +13,7 @@ import { ColorearDirective } from '../directives/colorear.directive';
     ListadoComponent,
     ElevarPipe,
     ColorearDirective,
+    DispositivoComponent
   ],
   imports: [
     CommonModule,
